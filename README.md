@@ -14,6 +14,10 @@ Switch to the repo folder
 
     cd take_home_test
 
+Copy the example docker-compose file
+
+    cp docker-compose-exemple.yml docker-compose.yml
+
 Copy the example env file and make the required configuration changes in the .env file
 
     cp .env.example .env

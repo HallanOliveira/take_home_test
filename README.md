@@ -30,6 +30,7 @@ Clean the application env cache
 
     sudo docker exec -i take_home_test_api_1 php artisan optimize
 
+End! Your API is available at localhost:3002.
 
 ## Help
 

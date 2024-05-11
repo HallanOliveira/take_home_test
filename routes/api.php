@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\v1\BalanceController;
+use App\Http\Controllers\Api\v1\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +14,8 @@ use App\Http\Controllers\Api\v1\BalanceController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::controller(AccountController::class)->group(function () {
+    Route::post('/reset', 'reset')->name('api.account.reset');
+    Route::get('/balance', 'getBalance')->name('api.account.balance');
+    Route::post('/event', 'eventHandle')->name('api.account.event');
 });
-
-Route::get('/balance', [BalanceController::class, 'getBalance']);

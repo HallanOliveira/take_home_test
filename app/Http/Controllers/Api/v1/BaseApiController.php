@@ -3,37 +3,33 @@
 namespace App\Http\Controllers\Api\v1;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Response;
 
 class BaseApiController extends Controller
 {
     /**
      * Return a error response
      *
-     * @param string  $message
-     * @param integer $code
+     * @param string|int  $message
+     * @param int         $code
      *
-     * @return JsonResponse
+     * @return Response
      */
-    protected function errorResponse(string $message, int $code = 500): JsonResponse
+    protected function errorResponse(string|int $message, int $code = 500): Response
     {
-        return response()->json(['error' => $message], $code);
+        return response($message, $code == 0 ? 500 : $code);
     }
 
     /**
      * Return a success response
      *
-     * @param string  $message
-     * @param array   $data
-     * @param integer $code
+     * @param array|string|float $data
+     * @param integer            $code
      *
-     * @return JsonResponse
+     * @return Response
      */
-    protected function successResponse(string $message, array $data, int $code = 200): JsonResponse
+    protected function successResponse(array|string|float $data, int $code = 200): Response
     {
-        return response()->json([
-            'message' => $message,
-            'data'    => $data
-        ], $code);
+        return response($data,$code);
     }
 }

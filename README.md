@@ -28,11 +28,11 @@ Build the docker image
 
 Generate a new application key
 
-    docker exec -i take_home_test_api_1 php artisan key:generate
+    docker exec -i take_home_test-app-1 php artisan key:generate
 
 Clean the application env cache
 
-    sudo docker exec -i take_home_test_api_1 php artisan optimize
+    sudo docker exec -i take_home_test-app-1 php artisan optimize
 
 End! Your API is available at localhost:3002.
 

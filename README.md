@@ -22,17 +22,23 @@ Copy the example env file and make the required configuration changes in the .en
 
     cp .env.example .env
 
+Install dependencies
+
+    composer install
+
 Build the docker image
 
     docker-compose up -d --build
 
 Generate a new application key
 
-    docker exec -i take_home_test-app-1 php artisan key:generate
+    docker exec -i take-home-test php artisan key:generate
 
 Clean the application env cache
 
-    sudo docker exec -i take_home_test-app-1 php artisan optimize
+    docker exec -i take-home-test php artisan optimize
+
+start the container
 
 End! Your API is available at localhost:3002.
 

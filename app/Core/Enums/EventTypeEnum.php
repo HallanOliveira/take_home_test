@@ -2,6 +2,13 @@
 
 namespace App\Core\Enums;
 
+/**
+ * Class EventTypeEnum
+ *
+ * Types allowed for the event type
+ *
+ * @package App\Core\Enums
+ */
 enum EventTypeEnum: string
 {
     case deposit  = 'deposit';

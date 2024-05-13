@@ -22,9 +22,9 @@ class AccountController extends BaseApiController
     /**
      * Reset Application database
      *
-     * @param Request $request
+     * @param ResetAppDb $resetAppDb
      *
-     * @return JsonResponse
+     * @return Response
      */
     public function reset(ResetAppDb $resetAppDb): Response
     {
@@ -39,9 +39,10 @@ class AccountController extends BaseApiController
     /**
      * Get the balance value
      *
-     * @param Request $request
+     * @param Request           $request
+     * @param GetBalanceService $getBalanceService
      *
-     * @return JsonResponse
+     * @return Response
      */
     public function getBalance(Request $request, GetBalanceService $getBalanceService): Response
     {
@@ -57,9 +58,10 @@ class AccountController extends BaseApiController
     /**
      * Handle the event
      *
-     * @param Request $request
+     * @param EventHandleRequest $request
+     * @param EventInterceptor   $eventInterceptor
      *
-     * @return JsonResponse
+     * @return Response
      */
     public function eventHandle(EventHandleRequest $request, EventInterceptor $eventInterceptor): Response
     {

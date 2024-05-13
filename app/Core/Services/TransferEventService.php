@@ -4,12 +4,13 @@ namespace App\Core\Services;
 
 use App\Core\Contracts\Repositories\AccountRepositoryInterface;
 use App\Core\Contracts\Formatters\AccountDataFormatterInterface;
+use App\Core\Contracts\Services\EventServiceInterface;
 use App\Core\Services\DepositEventService;
 use App\Core\Services\WithdrawEventService;
 use App\Core\Services\GetBalanceService;
 use App\Core\DTOs\AccountDTO;
 
-class TransferEventService
+class TransferEventService implements EventServiceInterface
 {
     public function __construct(
         private readonly AccountRepositoryInterface    $accountRepository,

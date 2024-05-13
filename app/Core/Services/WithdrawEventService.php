@@ -4,9 +4,10 @@ namespace App\Core\Services;
 
 use App\Core\Contracts\Repositories\AccountRepositoryInterface;
 use App\Core\Contracts\Formatters\AccountDataFormatterInterface;
+use App\Core\Contracts\Services\EventServiceInterface;
 use App\Core\DTOs\AccountDTO;
 
-class WithdrawEventService
+class WithdrawEventService implements EventServiceInterface
 {
     public function __construct(
         private readonly AccountRepositoryInterface    $accountRepository,

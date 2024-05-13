@@ -7,6 +7,7 @@ use App\Core\Contracts\Services\EventServiceInterface;
 use App\Core\Services\DepositEventService;
 use App\Core\Services\WithdrawEventService;
 use App\Core\Services\TransferEventService;
+use App\Core\Enums\EventTypeEnum;
 
 class EventHandleServiceProvider extends ServiceProvider
 {
@@ -26,10 +27,10 @@ class EventHandleServiceProvider extends ServiceProvider
              * @return EventServiceInterface
              */
             return match ($type) {
-                'deposit'  => app(DepositEventService::class),
-                'withdraw' => app(WithdrawEventService::class),
-                'transfer' => app(TransferEventService::class),
-                default    => throw new \Exception('Event type not found', 400),
+                EventTypeEnum::deposit->value  => app(DepositEventService::class),
+                EventTypeEnum::withdraw->value => app(WithdrawEventService::class),
+                EventTypeEnum::transfer->value => app(TransferEventService::class),
+                default                        => throw new \Exception('Event type not found', 400),
             };
         });
     }

@@ -22,10 +22,6 @@ Copy the example env file and make the required configuration changes in the .en
 
     cp .env.example .env
 
-Install dependencies
-
-    composer install
-
 Build the docker image
 
     docker-compose up -d --build
